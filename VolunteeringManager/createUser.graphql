@@ -1,0 +1,12 @@
+mutation createUser($email : String, $firstName : String, 
+        $lastName : String, $zipCode : String) {
+   createUser ( input : {
+    email: $email
+    firstName : $firstName
+    lastName : $lastName
+    zipCode : $zipCode
+    acceptTermsAndConditions:true 
+  }){ 
+    email
+ }
+}

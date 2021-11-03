@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Causes" representedClassName="Causes" syncable="YES">
+        <attribute name="cause" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Favorites" representedClassName="Favorites" syncable="YES">
+        <attribute name="connected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="favorated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="opp_contact_email" optional="YES" attributeType="String"/>
+        <attribute name="opp_description" optional="YES" attributeType="String"/>
+        <attribute name="opp_state" optional="YES" attributeType="String"/>
+        <attribute name="opp_time_zone" optional="YES" attributeType="String"/>
+        <attribute name="opp_title" optional="YES" attributeType="String"/>
+        <attribute name="opp_virtual" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="opp_zip_code" optional="YES" attributeType="String"/>
+        <attribute name="org_name" optional="YES" attributeType="String"/>
+        <relationship name="opp_act" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Log" inverseName="opp_act" inverseEntity="Log"/>
+    </entity>
+    <entity name="Log" representedClassName="Log" syncable="YES">
+        <attribute name="activity" optional="YES" attributeType="String"/>
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="opp_act" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorites" inverseName="opp_act" inverseEntity="Favorites"/>
+    </entity>
+    <entity name="MomentImages" representedClassName="MomentImages" syncable="YES">
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <relationship name="moment_images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Moments" inverseName="moment_images" inverseEntity="Moments"/>
+    </entity>
+    <entity name="Moments" representedClassName="Moments" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="post" optional="YES" attributeType="String"/>
+        <relationship name="moment_images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MomentImages" inverseName="moment_images" inverseEntity="MomentImages"/>
+    </entity>
+    <entity name="Skills" representedClassName="Skills" syncable="YES">
+        <attribute name="skill" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Users" representedClassName="Users" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="covid" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="first_name" optional="YES" attributeType="String"/>
+        <attribute name="image_blob" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String"/>
+        <attribute name="loggedIn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <attribute name="virtual" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="zip_code" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Causes" positionX="-54" positionY="36" width="128" height="44"/>
+        <element name="Favorites" positionX="0" positionY="90" width="128" height="194"/>
+        <element name="Log" positionX="-27" positionY="54" width="128" height="74"/>
+        <element name="MomentImages" positionX="-18" positionY="135" width="128" height="59"/>
+        <element name="Moments" positionX="-27" positionY="126" width="128" height="89"/>
+        <element name="Skills" positionX="-27" positionY="99" width="128" height="44"/>
+        <element name="Users" positionX="-63" positionY="-18" width="128" height="224"/>
+    </elements>
+</model>
